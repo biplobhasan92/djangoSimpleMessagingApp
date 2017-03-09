@@ -1,0 +1,9 @@
+{% for obj in chat %} {#This is chat panel. All Message are you can view in this panel #}
+    {% if obj.user == request.user %}
+        <li class="text-right list-group-item">{{ obj.message }}</li>
+    {% else %}
+        <li class="text-left list-group-item">{{ obj.message }}</li>
+    {% endif %}
+{% empty %}
+    <li class="text-right list-group-item">No messages yet!</li>{# If chat is empty than message will show in box #}
+{% endfor %}
